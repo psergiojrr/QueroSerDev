@@ -1,0 +1,105 @@
+/***** CSS da main *****/
+
+.container-card__login {
+  height: 35vh;
+  margin-bottom: 5rem;
+}
+
+.titulo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.card-conteudo {
+  border-radius: 7px;
+  box-shadow: 0 1px 1px 1px #cccbcb;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.card-descricao {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.form label i {
+  color: #c1c1c1;
+}
+
+.form label {
+  border-bottom: 1px solid #000000;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  width: 75%;
+}
+
+.form input {
+  height: 20px;
+  border: none;
+  width: 100%;
+  margin: 0 0.125rem;
+}
+
+input:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+}
+
+.form-link {
+  display: flex;
+  width: 80%;
+  justify-content: space-evenly;
+}
+
+.form-link__estilo {
+  text-decoration: none;
+  color: #000000;
+  font-size: 0.8rem;
+  transition: 0.3s;
+}
+
+.form-link__estilo:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.fa-eye {
+  cursor: pointer;
+}
+
+.card-botao {
+  border: none;
+  border-radius: 3px;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 1rem 0;
+  width: 75%;
+
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.card-botao:hover {
+  background-color: #C9192E;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}

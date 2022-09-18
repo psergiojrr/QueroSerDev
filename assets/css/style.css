@@ -1,0 +1,217 @@
+body {
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/***** CSS do HEADER *****/
+
+.container-header {
+  width: 100%;
+  height: 60px;
+  box-shadow: 1px 6px 16px -1px #c6c6c6;
+}
+
+.container-header__itens {
+  max-width: 1024px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.container-header__centralizado {
+  width: fit-content;
+  text-align: center;
+  margin: 0.75rem auto;
+}
+
+.logo {
+  width: 20%;
+  border-radius: 30px;
+}
+
+#barra-pesquisa {
+  border-bottom: 1px solid #000;
+}
+
+.barra-pesquisa {
+  border: none;
+  width: 15rem;
+}
+
+header label input:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+}
+
+.cancelar{
+  width: 15px;
+}
+
+.cancelar:hover{
+  cursor: pointer;
+}
+
+.tira-botao-limpar{
+  display: none;
+}
+
+.login {
+  text-decoration: none;
+  color: #000000;
+  transition: 0.1s;
+}
+
+.login:hover {
+  border-bottom: 1.5px solid #AAAAAA;
+  color: #000000;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.usuario-sair:hover {
+  cursor: pointer;
+}
+
+
+/***** CSS da página principal *****/
+
+.container-principal {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+
+}
+
+.destaque {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.destaque p {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.destaque h2 {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.destaque-letra {
+  display: flex;
+  align-items: center;
+  position: static;
+  padding-bottom: 15rem;
+}
+
+.destaque-imagem {
+  width: 35%;
+  border-radius: 8px;
+
+}
+
+.container-lista {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.lista-itens {
+  margin: 0 0.5rem;
+  list-style: none;
+}
+
+.lista-itens__link {
+  text-decoration: none;
+  color: #968b91
+}
+
+.lista-itens__link:hover {
+  border-bottom: 1.5px solid #AAAAAA;
+  color: #968b91;
+  cursor: pointer;
+  -webkit-text-stroke-width: 1px;
+}
+
+
+.container-produtos {
+  display: block;
+}
+
+.container-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  box-shadow: 1px 2px 18px #bba8a8;
+  border-radius: 20px;
+  width: 277px;
+  margin: 1rem;
+}
+
+.card img {
+  max-width: 277px;
+  max-height: 279.5px;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 1px 2px 18px #444040;
+}
+
+.card-bottom {
+  text-align: center;
+  height: 176px;
+}
+
+.card-titulo {
+  font-weight: bold;
+}
+
+.card-descricao {
+  padding: 1rem 0.5rem;
+  font-size: 0.9rem;
+  text-indent: 5px;
+}
+
+.card-informacoes {
+  padding: 0 1.5rem 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer {
+  color: white;
+  text-align: center;
+  width: 100%;
+  background-color: #000000;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  height: 100px;
+}
+
+.footer-imagem{
+  width: 30px;
+}
+
+.copyright {
+  font-size: 0.75rem;
+  margin-top: 1rem;
+}

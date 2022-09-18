@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/requests/createUser.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/login/login.css" />
+    <link rel="stylesheet" href="./assets/css/cadastro-usuario/usuario.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+
+    <title>PJR - Cadastre-se</title>
+    <link rel="shortcut icon" href="./assets/img/logo title.jpg" />
+  </head>
+  <body>
+    <header class="container-header">
+      <div id="logo" class="container-header__centralizado">
+        <h1>
+          <a href="./index.html"
+            ><img class="logo" alt="logo da página" src="./assets/img/logo.jpg"
+          /></a>
+        </h1>
+      </div>
+    </header>
+
+    <main>
+      <div>
+        <h2 class="titulo">Cadastro</h2>
+      </div>
+      <div class="container-principal container-card">
+        <div class="card-conteudo">
+          <div class="form">
+            <i class="fas fa-user user"></i>
+
+            <label class="input-label" for="nome">
+              <i class="fas fa-id-card"></i>
+              <input
+                id="nome"
+                type="text"
+                placeholder="Nome e Sobrenome"
+                required
+              />
+            </label>
+
+            <label class="input-label" for="email">
+              <i class="fas fa-at"></i>
+              <input id="email" type="email" placeholder="E-mail" required />
+            </label>
+            <label for="">
+              <i class="fas fa-key"></i>
+              <input id="senha" type="password" placeholder="Senha" required />
+            </label>
+            <button class="card-botao" onclick="createUser()">
+              Criar conta
+            </button>
+          </div>
+        </div>
+        <!--card-conteudo-->
+      </div>
+      <!--container-principal-->
+    </main>
+    <footer>
+      <img
+        class="footer-imagem"
+        alt="logo da página"
+        src="./assets/img/logo.jpg"
+      />
+      <p class="copyright">Copyright PJR - Todos os direitos reservados</p>
+    </footer>
+  </body>
+  <script>
+    autenticar()
+  </script>
+</html>

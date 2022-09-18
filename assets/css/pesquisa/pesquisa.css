@@ -1,0 +1,18 @@
+main {
+  min-height: 100vh;
+}
+
+.resultado-pesquisa {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.nenhumPedido {
+  font-size: 3rem;
+  text-align: center;
+  margin: 7rem auto;
+}
+
+footer {
+  bottom: 0;
+}
