@@ -100,8 +100,6 @@ function limpaTexto() {
 function apareceBotaoLimpar() {
   let texto = document.querySelector('#textoPesquisa')
 
-  console.log('ola')
-
   document.querySelector('#limpaTexto').classList.remove('tira-botao-limpar')
 
   if (texto.value === '') {
