@@ -136,7 +136,7 @@
       axios({
         method: 'put',
         url: `http://localhost:3000/user/${user.id}/update`,
-        responseType: 'stream',
+        responseType: 'json',
         headers: { 'Access-Control-Allow-Origin': '*' },
         data: {
           nome: nome,

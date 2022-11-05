@@ -6,7 +6,7 @@ function createUser() {
   axios({
     method: 'post',
     url: 'http://localhost:3000/user/create',
-    responseType: 'stream',
+    responseType: 'json',
     headers: { 'Access-Control-Allow-Origin': '*' },
     data: {
       nome: nome,

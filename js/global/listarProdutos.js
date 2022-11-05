@@ -16,7 +16,7 @@ function listarProdutos() {
   axios({
     method: 'post',
     url: 'http://localhost:3000/products',
-    responseType: 'stream',
+    responseType: 'json',
     headers: { 'Access-Control-Allow-Origin': '*' },
     data: json
   })
