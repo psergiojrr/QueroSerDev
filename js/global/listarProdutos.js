@@ -21,8 +21,6 @@ function listarProdutos() {
     data: json
   })
     .then(function (response) {
-      console.log(response)
-
       let produtos = response.data ?? `Não há produto cadastrado.`
       let sectionProdutos = document.querySelector('#lista-produtos')
       let listaProdutos = ''
@@ -60,16 +58,6 @@ function listarProdutos() {
     })
 }
 
-function pesquisarProduto(event) {
-  if (event.keyCode == 13) {
-    let palavraChave = event.target.value
-
-    if (palavraChave == null && palavraChave == '') return false
-
-    window.location.href = `./pesquisa.html?nome=${palavraChave}`
-  }
-}
-
 function getCategory(value) {
   let valor = value
 
@@ -91,21 +79,28 @@ function getCategory(value) {
   return valor
 }
 
+function pesquisarProduto(event) {
+  if (event.keyCode == 13) {
+    let palavraChave = event.target.value
+
+    if (palavraChave == null && palavraChave == '') return false
+
+    window.location.href = `./pesquisa.html?nome=${palavraChave}`
+  }
+}
+
 function limpaTexto() {
   document.querySelector('#textoPesquisa').value = ''
   apareceBotaoLimpar()
-  return
 }
 
 function apareceBotaoLimpar() {
-  let texto = document.querySelector('#textoPesquisa')
-
   document.querySelector('#limpaTexto').classList.remove('tira-botao-limpar')
 
+  let texto = document.querySelector('#textoPesquisa')
   if (texto.value === '') {
     return document
       .querySelector('#limpaTexto')
       .classList.add('tira-botao-limpar')
   }
-  return
 }
