@@ -106,6 +106,9 @@
             <button class="card-botao" onclick="updateUser()">
               Atualizar dados
             </button>
+            <button class="card-botao" onclick="cancelButton()">
+              Cancelar
+            </button>
           </div>
         </div>
         <!--card-conteudo-->
@@ -144,7 +147,6 @@
         }
       })
         .then(function (response) {
-          console.log(response)
           let { message, status, data } = response.data
 
           if (status == 'erro') return alert(message)
@@ -160,6 +162,10 @@ Por favor, faça login novamente.`)
         .catch(function (error) {
           console.error(error)
         })
+    }
+
+    function cancelButton(){
+      window.location.href = '../index.html'
     }
   </script>
 </html>

@@ -151,10 +151,8 @@
               Cadastrar
             </button>
           </div>
-        </div>
-        <!--card-conteudo-->
-      </div>
-      <!--container-principal-->
+        </div><!--card-conteudo-->
+      </div><!--container-principal-->
     </main>
     <footer>
       <img
@@ -171,8 +169,6 @@
 
     function isAdmin() {
       let user = JSON.parse(localStorage.getItem('user'))
-
-      console.log(user)
 
       if (user.admin == 0 || user.admin == null) {
         alert('Seu usuário não tem acesso a essa página!')

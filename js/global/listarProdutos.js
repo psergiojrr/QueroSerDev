@@ -29,7 +29,6 @@ function listarProdutos() {
         listaProdutos += `<div key="${produto.id}" class="card">
         <div>
           <img
-            alt="Tênis branco da marca All Stars"
             src="${produto.imagem}"
           />
         </div>

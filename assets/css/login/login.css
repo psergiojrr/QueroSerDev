@@ -86,7 +86,7 @@ input:focus {
   border-radius: 3px;
   padding: 10px 15px;
   cursor: pointer;
-  margin: 1rem 0;
+  margin: 1rem 0 0 0;
   width: 75%;
 
   background-color: #000000;
@@ -97,6 +97,7 @@ input:focus {
 
 .card-botao:hover {
   background-color: #C9192E;
+  font-size: 12.5px;
 }
 
 footer {
