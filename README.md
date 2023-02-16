@@ -85,7 +85,7 @@ Only the administrator user has permission to register products. Log in using th
 
 email: admin@admin.com
 
-senha: admin123
+password: admin123
 
 ---
 
