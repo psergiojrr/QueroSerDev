@@ -1,4 +1,4 @@
-# queroserdev
+# QueroSerDev
 <h1 align="center">
     <img alt="QueroSerDev" title="QueroSerDev - Paulo Sérgio" src=".github/logo.png" width="50%" />
 </h1>
