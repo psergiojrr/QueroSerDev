@@ -33,17 +33,6 @@ function autenticar() {
   }
 }
 
-function whiteList() {
-  let url = window.location.href
-  let list = ['index.html', 'pesquisa.html', 'cadastro-usuario.html']
-
-  url = url.split('/')[3]
-
-  let isGranted = list.some(item => item == url)
-
-  return isGranted
-}
-
 function logout() {
   let loginMenu = document.querySelector('#menu-usuario')
   localStorage.removeItem('user')
@@ -65,4 +54,15 @@ function checkUser() {
   }
 
   return user
+}
+
+function whiteList() {
+  let url = window.location.href
+  let list = ['index.html', 'pesquisa.html', 'cadastro-usuario.html','']
+
+  url = url.split('/')[3]
+
+  let isGranted = list.some(item => item == url)
+
+  return isGranted
 }
