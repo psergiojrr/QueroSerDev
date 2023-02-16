@@ -23,7 +23,7 @@ This project was developed using the following technologies:
 
 
 ## 💻 Project
-This project was developed as a job test for Ammo Varejo company, with the requirement of developing the front-end and back-end environment for an e-commerce website.
+This project was developed as a job test for [ammo.varejo](https://www.linkedin.com/company/ammo-varejo-ltda/), with the requirement of developing the front-end and back-end environment for an e-commerce website.
 
 ## 🔧 Installing
 
@@ -45,6 +45,7 @@ To install Node, run the following command in the terminal:
 To use the live-server extension:
 
 Just press the Ctrl+Shift+X command in Visual Studio Code and select the 'Live Server' extension by 'Ritwick Dey'.
+
 
 The database used in this project was MySQL Workbench. With Workbench installed, follow the steps below to import the server:
 
@@ -78,7 +79,7 @@ In the 'js' folder, run the command: ```npm start```
 
 After the server is online, start the Live Server application to view the complete site.
 
-##Important information:
+## Important information:
 
 Only the administrator user has permission to register products. Log in using the following credentials:
 
@@ -88,4 +89,4 @@ senha: admin123
 
 ---
 
-Projeto desenvolvido por Paulo Sérgio em teste para a [Ammo Varejo](https://www.linkedin.com/company/ammo-varejo-ltda/) :wave:
+Projeto desenvolvido por Paulo Sérgio em teste para a [ammo.varejo](https://www.linkedin.com/company/ammo-varejo-ltda/) :wave:
