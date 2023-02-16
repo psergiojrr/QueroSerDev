@@ -1,19 +1,19 @@
-# queroserdev
+# QueroSerDev
 <h1 align="center">
     <img alt="QueroSerDev" title="QueroSerDev - Paulo Sérgio" src=".github/logo.png" width="50%" />
 </h1>
 
 <p align="center">
-  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Installing">Installing</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
 <br>
 
-## 🚀 Tecnologias
+## 🚀 Technologies
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
+This project was developed using the following technologies:
 
 - [JavaScript]
 - [HTML5]
@@ -22,70 +22,71 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Axios]
 
 
-## 💻 Projeto
-O projeto foi desenvolvido em teste de emprego para a empresa Ammo Varejo, tendo como requisitos desenvolver o ambiente front-end e back-end de um site de ecommerce.
+## 💻 Project
+This project was developed as a job test for [ammo.varejo](https://www.linkedin.com/company/ammo-varejo-ltda/), with the requirement of developing the front-end and back-end environment for an e-commerce website.
 
-## 🔧 Instalação
+## 🔧 Installing
 
-Para executar o projeto em sua máquina/dispostivo, serão necessários os seguintes recursos instalados:
+To run the project on your machine/device, the following resources need to be installed:
 
 - [MySql Workbench](https://dev.mysql.com/downloads/)
 - [Node.js](https://nodejs.org/en/)
 - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
-Para realizar uma cópia deste projeto em sua máquina utilize o seguinte comando na pasta desejada atráves do prompt/terminal de comando do seu sistema:
+To make a copy of this project on your machine, use the following command in the desired folder through your system's prompt/command terminal:
 
 ```git clone https://github.com/psergiojrr/QueroSerDev```
 
 
-Para instalar o Node, execute no terminal o seguinte comando:
+To install Node, run the following command in the terminal:
 
 ```npm install```
 
-Para utilizar a extensão live-server:
+To use the live-server extension:
 
-Basta apertar o comando Crtl+Shift+X no Visual Studio Code e selecionar a extensão "Live Server" de "Ritwick Dey"
+Just press the Ctrl+Shift+X command in Visual Studio Code and select the 'Live Server' extension by 'Ritwick Dey'.
 
-O banco de dados utilizado nesse projeto foi o MySQL Workbench. Com o Workbench instalado, para importar o servidor siga os passos abaixo:
 
-1-Com o MySQL aberto, realize o login do seu servidor local.
+The database used in this project was MySQL Workbench. With Workbench installed, follow the steps below to import the server:
 
-2-Na aba "Navigator", selecione lá embaixo a coluna "Administration".
+1- With MySQL open, log in to your local server.
 
-3-Em "Management", selecione a opção "Data Import/Restore".
+2- In the 'Navigator' tab, select the 'Administration' column at the bottom.
 
-4-Nas opções de importação, selecione a opção Import Self-Contained File e selecione o arquivo "BD_queroserdev_18092022" que se encontra na pasta "sql".
+3- Under 'Management', select the 'Data Import/Restore' option.
 
-5-Após informar o caminho do arquivo, selecione "Start Import".
+4- In the import options, select the 'Import Self-Contained File' option and select the file 'BD_queroserdev_18092022' located in the 'sql' folder.
 
-## 🔖 Abrindo o projeto
+5- After specifying the file path, select 'Start Import'."
 
-Com todo os arquivos instalados, abra a pasta do arquivo no Visual Studio Code.
+## 🔖 Opening the project:
 
-Abra a pasta "js" > "api" > "config" e abra o arquivo "config.json". 
+With all the files installed, open the file folder in Visual Studio Code.
 
-Nesse arquivo altere as opções em "development:
- 
- "username": "insira seu usuario utilizado para acessar o mysql no passo anterior"
- 
- "password": "insira sua senha utilizada para acessar o mysql" (caso não tenha senha, deixe esse campo preenchido com null).
+Open the folder 'js' > 'api' > 'config' and open the file 'config.json'.
 
-Abra o terminal utilizando o comando Ctrl + "
+In this file, change the options under 'development':
 
-Execute o comando: ```cd js```
+"username": "insert your username used to access MySQL in the previous step"
 
-Estando na pasta do js, execute o comando: ```npm start```
+"password": "insert your password used to access MySQL" (if you don't have a password, leave this field as null).
 
-Após o servidor ficar online, inicie o aplicativo Live Server para visualizar o site completo.
+Open the terminal using the command Ctrl + ".
 
-## Informações importantes
+Run the command: ```cd js```
 
-Apenas o usuário administrador possui permissão para realizar o cadastro de produtos. Realize o login utilizando os seguintes dados:
+In the 'js' folder, run the command: ```npm start```
+
+After the server is online, start the Live Server application to view the complete site.
+
+## Important information:
+
+Only the administrator user has permission to register products. Log in using the following credentials:
 
 email: admin@admin.com
 
-senha: admin123
+password: admin123
 
 ---
 
-Projeto desenvolvido por Paulo Sérgio em teste para a [Ammo Varejo](https://www.linkedin.com/company/ammo-varejo-ltda/) :wave:
+Projeto desenvolvido por Paulo Sérgio em teste para a [ammo.varejo](https://www.linkedin.com/company/ammo-varejo-ltda/) :wave:
