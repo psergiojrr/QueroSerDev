@@ -1,4 +1,4 @@
-CREATE TABLE products (
+CREATE TABLE IF NOT EXISTS products (
     id UUID NOT NULL PRIMARY KEY,
     name VARCHAR(255),
     description TEXT,
@@ -10,7 +10,7 @@ CREATE TABLE products (
     deletedAt TIMESTAMP NULL
 );
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id UUID NOT null primary KEY,
   name varchar(255) NOT NULL,
   email varchar(255) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE users (
   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   deletedAt TIMESTAMP NULL
-)
+);
 
 INSERT INTO products VALUES 
 ('c035d662-bf76-41a5-9850-f992568cd1e0','Nike SB','O design renovado inclui atualizações na boca e no calcanhar para um ajuste aprimorado, mantendo o conforto e o desempenho que você espera de um Nike SB.','Tênis',2899,'https://imgnike-a.akamaihd.net/1300x1300/014591BR.jpg','2022-09-12 20:38:39','2022-09-18 19:36:26'),
