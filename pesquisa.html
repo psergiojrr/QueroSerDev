@@ -11,20 +11,12 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-      crossorigin="anonymous"
-    ></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;600&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/pesquisa/pesquisa.css" />
@@ -34,9 +26,6 @@
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
       crossorigin="anonymous"
     />
-    <script src="./js/global/menu_login.js"></script>
-    <script src="./js/utils/filters.js"></script>
-    <script src="./js/global/listarProdutos.js"></script>
 
     <title>PJR - Home</title>
     <link rel="shortcut icon" href="./assets/img/logo title.jpg" />
@@ -150,9 +139,22 @@
       />
       <p class="copyright">Copyright PJR - Todos os direitos</p>
     </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script src="./js/global/menu_login.js" defer></script>
+    <script src="./js/utils/filters.js" defer></script>
+    <script src="./js/global/listarProdutos.js" defer></script>
+
+    <script defer>
+      autenticar()
+      listarProdutos()
+    </script>
   </body>
-  <script>
-    autenticar()
-    listarProdutos()
-  </script>
 </html>

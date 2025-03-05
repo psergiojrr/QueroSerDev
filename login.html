@@ -11,12 +11,6 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -88,46 +82,53 @@
       />
       <p class="copyright">Copyright PJR - Todos os direitos reservados</p>
     </footer>
-  </body>
 
-  <script>
-    function logar() {
-      let email = document.querySelector('#email').value
-      let senha = document.querySelector('#senha').value
-
-      axios({
-        method: 'post',
-        url: 'http://localhost:3000/user/0',
-        responseType: 'json',
-        headers: { 'Access-Control-Allow-Origin': '*' },
-        data: {
-          email: email,
-          senha: senha
-        }
-      })
-        .then(function (response) {
-          let status = response.data.status
-          let user = response.data.data
-
-          if (status == 'sucesso') {
-            localStorage.setItem('user', JSON.stringify(user))
-            window.location.href = '/index.html'
-          } else {
-            alert(response.data.message)
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script defer>
+      function logar() {
+        let email = document.querySelector('#email').value
+        let senha = document.querySelector('#senha').value
+  
+        axios({
+          method: 'post',
+          url: 'http://localhost:3000/user/0',
+          responseType: 'json',
+          headers: { 'Access-Control-Allow-Origin': '*' },
+          data: {
+            email: email,
+            senha: senha
           }
         })
-        .catch(function (error) {
-          console.log(error)
-        })
-    }
-
-    function verificaTecla(event){
-      event.keyCode == 13 ? logar() : ''
-    }
-
-    function mostrarSenha() {
-      let senha = document.querySelector('#senha')
-      senha.type === 'password' ? senha.type = 'text' : senha.type = 'password'
-    }
-  </script>
+          .then(function (response) {
+            let status = response.data.status
+            let user = response.data.data
+  
+            if (status == 'sucesso') {
+              localStorage.setItem('user', JSON.stringify(user))
+              window.location.href = '/index.html'
+            } else {
+              alert(response.data.message)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      }
+  
+      function verificaTecla(event){
+        event.keyCode == 13 ? logar() : ''
+      }
+  
+      function mostrarSenha() {
+        let senha = document.querySelector('#senha')
+        senha.type === 'password' ? senha.type = 'text' : senha.type = 'password'
+      }
+    </script>
+  </body>
 </html>
