@@ -1,5 +1,6 @@
 function autenticar() {
   let user = checkUser()
+  let isAdmin = verifyPermission(user)
   let status = ''
 
   let loginMenu = document.querySelector('#menu-usuario')
@@ -14,12 +15,12 @@ function autenticar() {
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        ${user.nome || `Login`}
+        ${user.name || `Login`}
       </a>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="../${
-          user.admin ? `cadastro-produto.html` : `./meus-dados.html`
-        }"> ${user.admin ? `Cadastrar produto` : `Meus dados`}</a></li>
+          isAdmin ? `cadastro-produto.html` : `./meus-dados.html`
+        }"> ${isAdmin ? `Cadastrar produto` : `Meus dados`}</a></li>
 
         <li><hr class="dropdown-divider" /></li>
         <li>
@@ -65,4 +66,8 @@ function whiteList() {
   let isGranted = list.some(item => item == url)
 
   return isGranted
+}
+
+function verifyPermission (user) {
+  return user.permission === 'ADMIN'
 }

@@ -61,7 +61,8 @@
                 type="password" 
                 onkeypress="verificaTecla(event)"
                 placeholder="Senha" 
-                required />
+                required 
+              />
               <i id="olho" class="fas fa-eye" onclick="mostrarSenha()"></i>
             </label>
             <div class="form-link">
@@ -93,41 +94,43 @@
     <script defer>
       function logar() {
         let email = document.querySelector('#email').value
-        let senha = document.querySelector('#senha').value
+        let password = document.querySelector('#senha').value
   
         axios({
           method: 'post',
-          url: 'http://localhost:3000/user/0',
+          url: 'http://localhost:3000/user/login',
           responseType: 'json',
           headers: { 'Access-Control-Allow-Origin': '*' },
           data: {
             email: email,
-            senha: senha
+            password: password
           }
         })
           .then(function (response) {
-            let status = response.data.status
-            let user = response.data.data
-  
-            if (status == 'sucesso') {
+            const status = response.status
+            const user = response.data
+
+            if (status === 200) {
               localStorage.setItem('user', JSON.stringify(user))
               window.location.href = '/index.html'
-            } else {
-              alert(response.data.message)
             }
           })
           .catch(function (error) {
-            console.log(error)
+            alert(error.response.data)
           })
       }
   
       function verificaTecla(event){
-        event.keyCode == 13 ? logar() : ''
+        event.keyCode == 13 
+          ? logar()
+          : ''
       }
   
       function mostrarSenha() {
         let senha = document.querySelector('#senha')
-        senha.type === 'password' ? senha.type = 'text' : senha.type = 'password'
+        senha.type === 'password' 
+          ? senha.type = 'text'
+          : senha.type = 'password'
       }
     </script>
   </body>

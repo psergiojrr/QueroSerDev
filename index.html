@@ -163,8 +163,10 @@
     <script src="./js/utils/filters.js" defer></script>
     <script src="./js/global/listarProdutos.js" defer></script>
     <script defer>
-      autenticar()
-      listarProdutos()
+      window.onload = function() {
+        autenticar()
+        listarProdutos()
+      }
     </script>
   </body>
 </html>

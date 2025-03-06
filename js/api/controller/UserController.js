@@ -1,26 +1,19 @@
 const User = require('../models/users.js')
 
-class AppError extends Error {
-  constructor(message, statusCode) {
-    super(message)
-    this.statusCode = statusCode
-  }
-}
-
 class UserController {
-  static async createUser(req, res, next) {
+  static async createUser(req, res) {
     const { name, email, password } = req.body
 
     if(!name) {
-      throw new AppError('O campo nome é obrigatório!', 400)
+      return res.status(400).send('O campo nome é obrigatório!')
     }
 
     if(!email) {
-      throw new AppError('O campo email obrigatório!', 400)
+      return res.status(400).send('O campo email é obrigatório!')
     }
 
     if(!password) {
-      throw new AppError('O campo senha obrigatório!', 400)
+      return res.status(400).send('O campo password é obrigatório!')
     }
 
     try {
@@ -29,7 +22,7 @@ class UserController {
       })
 
       if (hasUserWithThisEmail) {
-        throw new AppError('O e-mail informado já está em uso.', 409)
+        return res.status(400).send('O e-mail informado já está em uso.')
       } else {
         const newUser = await User.create({
           name,
@@ -43,40 +36,40 @@ class UserController {
         })
       }
     } catch (error) {
-      return next(error)
+      return res.status(500).send(error.message)
     }
   }
 
   //todo: Colocar trava que apenas admin pode acessar esse endpoint
-  static async getAllUsers(req, res, next) {
+  static async getAllUsers(req, res) {
     try {
       const allUsers = await User.findAll()
-      return res.status(201).json(allUsers)
+      return res.status(200).json(allUsers)
     } catch (error) {
-      return next(error)
+      return res.status(500).send(error.message)
     }
   }
 
-  static async updateUser(req, res, next) {
+  static async updateUser(req, res) {
     const { id } = req.params
     const { name, email, password } = req.body
 
     if(!name) {
-      throw new AppError('O campo nome é obrigatório!', 400)
+      return res.status(400).send('O campo name é obrigatório!')
     }
 
     if(!email) {
-      throw new AppError('O campo email é obrigatório!', 400)
+      return res.status(400).send('O campo email é obrigatório!')
     }
 
     if(!password) {
-      throw new AppError('O campo password é obrigatório!', 400)
+      return res.status(400).send('O campo password é obrigatório!')
     }
 
     const user = await User.findByPk(id)
 
     if(!user) {
-      throw new AppError('O usuário não existe!', 400)
+      return res.status(400).send('O usuário não existe!')
     }
 
     try {
@@ -90,54 +83,54 @@ class UserController {
       )
   
       if (updatedRows === 0) {
-        throw new AppError('Erro ao atualizar o usuário!', 400)
+        return res.status(400).send('OErro ao atualizar o usuário!')
       }
 
-      return res.status(201).json({
+      return res.status(200).json({
         message: 'Usuário alterado com sucesso',
         status: 'sucesso',
       })
     } catch (error) {
-      return next(error)
+      return res.status(500).send(error.message)
     }
   }
 
-  static async deleteUser(req, res, next) {
+  static async deleteUser(req, res) {
     const { id } = req.params
     try {
       await User.destroy({ where: { id: Number(id) } })
-      return res.status(201).json({ message: 'Usuário deletado' })
+      return res.status(204).json({ message: 'Usuário deletado' })
     } catch (error) {
-      return next(error)
+      return res.status(500).send(error.message)
     }
   }
 
-  //todo terminar a lógica de login e a tratativa de erros
-  static async login(req, res, next) {
+  static async login(req, res) {
     const { email, password } = req.body
 
     if(!email) {
-      throw new AppError('O campo email é obrigatório!')
+      return res.status(400).send('O campo email é obrigatório!')
     }
 
     if(!password) {
-      throw new AppError('O campo senha é obrigatório!')
+      return res.status(400).send('O campo password é obrigatório!')
     }
 
     try {
-      const checkUser = await User.findOne({
+      const user = await User.findOne({
         where: {
           email,
           password
         }
       })
 
-      if(!checkUser) {
-        throw new AppError('Email ou senha inválido!')
+      if(!user) {
+        return res.status(400).send('Email ou senha inválidos!')
       }
 
+      return res.status(200).send(user)
     } catch (error) {
-      return next(error)
+      return res.status(500).send(error.message)
     }
   }  
 }
