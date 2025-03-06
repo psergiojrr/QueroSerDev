@@ -6,7 +6,7 @@ const cors = require('cors')
 const app = express()
 const port = 3000
 
-const sequelize = new Sequelize('postgres','postgres', 'postgres', {
+const sequelize = new Sequelize('postgres', 'postgres', 'postgres', {
   host: 'db',
   dialect: 'postgres'
 })
@@ -14,6 +14,16 @@ const sequelize = new Sequelize('postgres','postgres', 'postgres', {
 app.use(cors())
 
 routes(app)
+
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500
+  const message = err.message || 'Erro interno no servidor.'
+
+  return res.status(statusCode).json({
+    message,
+    status: 'erro'
+  })
+})
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
@@ -25,7 +35,7 @@ app.use(function (req, res, next) {
 })
 
 app.listen(port, () => {
-  console.log(`Servidor sendo rodado na porta ${port}`)
+  console.log(`Servidor rodando na porta ${port}`)
 
   sequelize.authenticate().then(() => {
     console.log("Conexão com o banco de dados estabelecida")

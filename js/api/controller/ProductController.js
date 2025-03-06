@@ -2,7 +2,6 @@ const { Op } = require('sequelize')
 const database = require('../models')
 
 class ProductController {
-  //********Cria um produto********
   static async createProduct(req, res) {
     const newProduct = req.body
     try {
@@ -34,7 +33,6 @@ class ProductController {
     }
   }
 
-  // ********Pega todos os produtos********
   static async getAllProducts(req, res) {
     try {
       let param = req.body
@@ -59,7 +57,6 @@ class ProductController {
     }
   }
 
-  //********Pega um produto********
   static async getProduct(req, res) {
     const { id } = req.params
 
@@ -75,7 +72,6 @@ class ProductController {
     }
   }
 
-  //********Atualiza um produto********
   static async updateProduct(req, res) {
     const { id } = req.params
     const newInfo = req.body
@@ -91,7 +87,6 @@ class ProductController {
     }
   }
 
-  //********Deleta um produto********
   static async deleteProduct(req, res) {
     const { id } = req.params
     try {

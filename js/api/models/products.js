@@ -1,27 +1,48 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class products extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  products.init({
-    nome: DataTypes.STRING,
-    descricao: DataTypes.STRING,
-    categoria: DataTypes.STRING,
-    preco: DataTypes.FLOAT,
-    imagem: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'products',
-  });
-  return products;
-};
+const Sequelize = require('sequelize')
+const sequelize = require('./index')
+
+const Products = sequelize.define('products', {
+  id: {
+    type: Sequelize.UUIDV4,
+    primaryKey: true,
+    allowNull: false,
+    defaultValue: Sequelize.UUIDV4
+  },
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  description: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  category: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  price: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+  image: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  createdAt: {
+    type: Sequelize.DATE,
+    allowNull: false,
+    defaultValue: Date.now()
+  },
+  updatedAt: {
+    type: Sequelize.DATE,
+    allowNull: false,
+    defaultValue: Date.now()
+  },
+  deletedAt: {
+    type: Sequelize.DATE,
+    allowNull: true,
+    defaultValue: null
+  },
+})
+
+module.exports = Products
