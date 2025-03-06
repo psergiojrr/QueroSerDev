@@ -82,7 +82,7 @@
             <label class="input-label" for="nome">
               <i class="fas fa-id-card"></i>
               <input
-                id="nome"
+                id="name"
                 type="text"
                 placeholder="Nome e Sobrenome"
                 required
@@ -91,7 +91,7 @@
 
             <label for="">
               <i class="fas fa-key"></i>
-              <input id="senha" type="password" placeholder="Senha" required />
+              <input id="password" type="password" placeholder="Senha" required />
             </label>
             <button class="card-botao" onclick="updateUser()">
               Atualizar dados
@@ -125,34 +125,39 @@
     <script src="./js/requests/createUser.js" defer></script>
     <script src="./js/global/menu_login.js" defer></script>
     <script defer>
-      autenticar()
+      window.onload = function() {
+        autenticar()
+      }
+    </script>
+    <script defer>
       function updateUser() {
         let user = JSON.parse(localStorage.getItem('user'))
   
-        if (user == null) {
+        if (!user) {
           return (window.location.href = './login.html')
         }
   
-        let nome = document.querySelector('#nome').value
-        let senha = document.querySelector('#senha').value
+        let name = document.querySelector('#name').value
+        let password = document.querySelector('#password').value
+
+        if(!name || !password) {
+          return alert('Insira todos os campos!')
+        }
   
         axios({
           method: 'put',
-          url: `http://localhost:3000/user/${user.id}/update`,
+          url: `http://localhost:3000/user/${user.id}`,
           responseType: 'json',
           headers: { 'Access-Control-Allow-Origin': '*' },
           data: {
-            nome: nome,
-            senha: senha
+            name: name,
+            password: password
           }
         })
           .then(function (response) {
-            let { message, status, data } = response.data
+            let { message } = response.data
   
-            if (status == 'erro') return alert(message)
-  
-            if (user.nome == null || user.senha == null)
-              return alert('Insira todos os dados!')
+            if (response.status !== 204) return alert(message)
   
             alert(`Dados alterados com sucesso!
   Por favor, faça login novamente.`)

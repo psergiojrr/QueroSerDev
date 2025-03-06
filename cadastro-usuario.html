@@ -48,7 +48,7 @@
             <label class="input-label" for="nome">
               <i class="fas fa-id-card"></i>
               <input
-                id="nome"
+                id="name"
                 type="text"
                 placeholder="Nome e Sobrenome"
                 required
@@ -61,7 +61,7 @@
             </label>
             <label for="">
               <i class="fas fa-key"></i>
-              <input id="senha" type="password" placeholder="Senha" required />
+              <input id="password" type="password" placeholder="Senha" required />
             </label>
             <button class="card-botao" onclick="createUser()">
               Criar conta
@@ -83,8 +83,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <script src="./js/requests/createUser.js" defer></script>
+    <script src="./js/global/menu_login.js" defer></script>
     <script defer>
-      autenticar()
+      window.onload = function() {
+        autenticar()
+      }
     </script>
   </body>
 </html>

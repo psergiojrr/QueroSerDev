@@ -1,32 +1,43 @@
 function createUser() {
-  let nome = document.querySelector('#nome').value
+  let name = document.querySelector('#name').value
   let email = document.querySelector('#email').value
-  let senha = document.querySelector('#senha').value
+  let password = document.querySelector('#password').value
+
+  if(!name) {
+    return alert('O campo nome é obrigatório!')
+  }
+
+  if(!email) {
+    return alert('O campo email é obrigatório!')
+  }
+
+  if(!password) {
+    return alert('O campo senha é obrigatório!')
+  }
 
   axios({
     method: 'post',
-    url: 'http://localhost:3000/user/create',
+    url: 'http://localhost:3000/user',
     responseType: 'json',
     headers: { 'Access-Control-Allow-Origin': '*' },
     data: {
-      nome: nome,
+      name: name,
       email: email,
-      senha: senha
+      password: password
     }
   })
     .then(function (response) {
-      console.log(response)
-      let { message, status, data } = response.data
+      let { message, data } = response.data
 
-      if (status == 'erro') return alert(message)
+      if (!data) return alert(message)
 
-      if (data == null) return alert('Falha ao receber dados do usuário')
+      if(response.status === 201) {
+        alert('Usuário cadastrado com sucesso!')
 
-      alert('Usuário cadastrado com sucesso!')
-
-      window.location.href = '../login.html'
+        window.location.href = '../login.html'
+      }
     })
     .catch(function (error) {
-      console.log(error)
+      alert(error.response.data)
     })
 }

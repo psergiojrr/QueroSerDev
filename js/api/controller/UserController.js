@@ -13,7 +13,7 @@ class UserController {
     }
 
     if(!password) {
-      return res.status(400).send('O campo password é obrigatório!')
+      return res.status(400).send('O campo senha é obrigatório!')
     }
 
     try {
@@ -52,18 +52,14 @@ class UserController {
 
   static async updateUser(req, res) {
     const { id } = req.params
-    const { name, email, password } = req.body
+    const { name, password } = req.body
 
     if(!name) {
       return res.status(400).send('O campo name é obrigatório!')
     }
 
-    if(!email) {
-      return res.status(400).send('O campo email é obrigatório!')
-    }
-
     if(!password) {
-      return res.status(400).send('O campo password é obrigatório!')
+      return res.status(400).send('O campo senha é obrigatório!')
     }
 
     const user = await User.findByPk(id)
@@ -74,11 +70,10 @@ class UserController {
 
     try {
       user.name = name
-      user.email = email
       user.password = password
 
       const [updatedRows] = await User.update(
-        { name, email, password },
+        { name, password },
         { where: { id } }
       )
   
@@ -86,7 +81,7 @@ class UserController {
         return res.status(400).send('OErro ao atualizar o usuário!')
       }
 
-      return res.status(200).json({
+      return res.status(204).json({
         message: 'Usuário alterado com sucesso',
         status: 'sucesso',
       })
@@ -113,7 +108,7 @@ class UserController {
     }
 
     if(!password) {
-      return res.status(400).send('O campo password é obrigatório!')
+      return res.status(400).send('O campo senha é obrigatório!')
     }
 
     try {

@@ -163,15 +163,18 @@
     <script src="./js/requests/createProduct.js" defer></script>
     <script src="./js/global/listarProdutos.js" defer></script>
     <script defer>
-      autenticar()
-      isAdmin()
+      window.onload = function() {
+        autenticar()
 
-      function isAdmin() {
-        let user = JSON.parse(localStorage.getItem('user'))
+        isAdmin()
 
-        if (user.admin == 0 || user.admin == null) {
-          alert('Seu usuário não tem acesso a essa página!')
-          return (window.location.href = './index.html')
+        function isAdmin() {
+          let user = JSON.parse(localStorage.getItem('user'))
+
+          if (user.admin == 0 || user.admin == null) {
+            alert('Seu usuário não tem acesso a essa página!')
+            return (window.location.href = './index.html')
+          }
         }
       }
     </script>
