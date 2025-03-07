@@ -1,4 +1,4 @@
-async function listarProdutos() {
+async function listProducts() {
   axios({
     method: 'get',
     url: `http://localhost:3000/product`,

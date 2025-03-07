@@ -1,33 +1,40 @@
-function autenticar() {
-  let user = checkUser()
-  let isAdmin = verifyPermission(user)
+function verifyUser() {
+  const user = checkUser()
   let status = ''
 
   let loginMenu = document.querySelector('#menu-usuario')
 
-  if (user != null && user != undefined) {
-    let menuLogado = `<li id="item-logado" class="nav-item dropdown">
-      <a
-        id="nome-usuario"
-        class="nav-link dropdown-toggle ms-auto login"
-        href="#"
-        role="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        ${user.name || `Login`}
-      </a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="../${
-          isAdmin ? `cadastro-produto.html` : `./meus-dados.html`
-        }"> ${isAdmin ? `Cadastrar produto` : `Meus dados`}</a></li>
-
-        <li><hr class="dropdown-divider" /></li>
-        <li>
-          <a class="dropdown-item usuario-sair" onclick="logout()">Sair</a>
-        </li>
-      </ul>
-    </li>`
+  if (user) {
+    const isAdmin = verifyPermission(user)
+    let menuLogado = `
+      <li id="item-logado" class="nav-item dropdown">
+        <a
+          id="nome-usuario"
+          class="nav-link dropdown-toggle ms-auto login"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          ${user.name || `Login`}
+        </a>
+        <ul class="dropdown-menu">
+          ${isAdmin ? `
+            <li><a class="dropdown-item" href="../cadastro-produto.html">Cadastrar produto</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="../cadastro-categoria.html">Cadastrar categoria</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="./meus-dados.html">Meus dados</a></li>
+          ` : `
+            <li><a class="dropdown-item" href="./meus-dados.html">Meus dados</a></li>
+          `}
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <a class="dropdown-item usuario-sair" onclick="logout()">Sair</a>
+          </li>
+        </ul>
+      </li>
+    `
 
     loginMenu.innerHTML = menuLogado
     return (status = 'sucesso')
@@ -50,7 +57,7 @@ function checkUser() {
   let user = JSON.parse(localStorage.getItem('user'))
   let white = whiteList()
 
-  if (user == null && white == false) {
+  if (!user && white == false) {
     return (window.location.href = './login.html')
   }
 
