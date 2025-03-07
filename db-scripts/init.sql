@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS products (
     "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     "deletedAt" TIMESTAMP NULL
-)
+);
 
 CREATE TABLE IF NOT EXISTS users (
   id UUID NOT NULL PRIMARY KEY,
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS users (
   "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   "updatedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   "deletedAt" TIMESTAMP NULL
-)
+);
 
 
 INSERT INTO products VALUES 
@@ -29,8 +29,8 @@ INSERT INTO products VALUES
 ('fda2155b-855f-45d1-b00a-24d17cbf5878','Camisa Seleção Brasileira I 22/23','A Coleção da Seleção Brasileira de 2022 combina a icônica estampa da onça-pintada com design inovador que mantém seu corpo seco mesmo no auge da empolgação. Uma homenagem ao Brasil e ao seu povo, esta coleção foi feita para mostrar a sua garra.','Camisa',24990,'https://imgnike-a.akamaihd.net/1300x1300/0226390L.jpg','2022-09-17 12:59:29','2022-09-17 13:26:04'),
 ('d2e20c87-defa-496b-9606-fed173c5bb49','Camisa Seleção Brasileira II 22/23','Com a base azul, o grande destaque da camisa reserva (II) da Seleção Brasileira para 2022-2023 fica por conta, novamente, da pele da onça-pintada, agora nas mangas, em um degrade para o verde.','Camisa',24990,'https://d3ugyf2ht6aenh.cloudfront.net/stores/946/221/products/camisa-selecao-brasileira-ii-2022-torcedor-nike-masculina-azul-11-b3bb0773f9b500d9d616599885361586-1024-1024.jpg','2022-09-17 13:15:08','2022-09-17 13:26:09'),
 ('6f1e18d7-7709-4cb2-8e98-069f38296cc3','Camiseta Vans','Confeccionada em material leve e resistente, oferece conforto e bem-estar duradouro. A camiseta possui mangas curtas e gola careca o que possibilita um ótimo caimento. Além disso, o logo da marca em tamanho ampliado, confere todo padrão Vans no produto.','Camiseta',11990,'https://imgcentauro-a.akamaihd.net/900x900/967482KM/camiseta-vans-manga-curta-flying-v-crew-feminina-img.jpg','2022-09-17 13:42:44','2022-09-18 19:36:01'),
-('c997014c-c476-480b-899f-3d110e6091c7','Camiseta Adidas','Uma peça versátil para usar nas diversas ocasiões e te deixar cheio de estilo é a Camiseta adidas Manga Curta Logo.  A camiseta adidas masculina é de gola careca com tira interna em tecido que ajuda a diminuir o atrito de contato com a costura.','Camiseta',9990,'https://static.netshoes.com.br/produtos/camiseta-adidas-logo-skt-masculina/06/FB8-0959-006/FB8-0959-006_zoom1.jpg?ts=1662403283&ims=326x','2022-09-18 16:34:05','2022-09-18 19:36:56')
+('c997014c-c476-480b-899f-3d110e6091c7','Camiseta Adidas','Uma peça versátil para usar nas diversas ocasiões e te deixar cheio de estilo é a Camiseta adidas Manga Curta Logo.  A camiseta adidas masculina é de gola careca com tira interna em tecido que ajuda a diminuir o atrito de contato com a costura.','Camiseta',9990,'https://static.netshoes.com.br/produtos/camiseta-adidas-logo-skt-masculina/06/FB8-0959-006/FB8-0959-006_zoom1.jpg?ts=1662403283&ims=326x','2022-09-18 16:34:05','2022-09-18 19:36:56');
 
 INSERT INTO users VALUES 
-('f71950f4-7ba9-4751-8140-b7cbad241fb2','Paulo','paulo@email.com','paulo123','ADMIN','2022-09-09 18:17:19','2022-09-16 01:06:41')
-('79da2408-ec9b-4008-a297-8524911f250a', 'Paulo Sérgio', 'sergio@email.com', 'sergio123', 'USER', '2025-03-06 13:40:22.884', '2025-03-06 13:58:17.344')
+('f71950f4-7ba9-4751-8140-b7cbad241fb2','Paulo','paulo@email.com','paulo123','ADMIN','2022-09-09 18:17:19','2022-09-16 01:06:41'),
+('79da2408-ec9b-4008-a297-8524911f250a', 'Paulo Sérgio', 'sergio@email.com', 'sergio123', 'USER', '2025-03-06 13:40:22.884', '2025-03-06 13:58:17.344');
