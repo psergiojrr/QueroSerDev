@@ -1,7 +1,6 @@
-function mascaraReais(valor) {
-  let valorFormatado = valor.toLocaleString('pt-br', {
+function convertToBRL(value) {
+  return value.toLocaleString('pt-br', {
     style: 'currency',
     currency: 'BRL'
   })
-  return valorFormatado
 }

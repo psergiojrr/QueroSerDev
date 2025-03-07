@@ -4,8 +4,8 @@ const ProductController = require('../controller/ProductController')
 const router = Router()
 
 router
-  .post('/products', ProductController.getAllProducts)
-  .post('/product/create', ProductController.createProduct)
+  .get('/product', ProductController.getAllProducts)
+  .post('/product', ProductController.createProduct)
   .get('/product/:id', ProductController.getProduct)
   .put('/product/:id/update', ProductController.updateProduct)
   .delete('/product/:id/delete', ProductController.deleteProduct)

@@ -21,7 +21,7 @@ function createProduct() {
 
     axios({
       method: 'post',
-      url: 'http://localhost:3000/product/create',
+      url: 'http://localhost:3000/product',
       responseType: 'json',
       headers: { 'Access-Control-Allow-Origin': '*' },
       data: {

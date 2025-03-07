@@ -48,8 +48,8 @@
           <label for="">
             <input
               id="textoPesquisa"
-              onkeydown="apareceBotaoLimpar()"
-              onkeypress="pesquisarProduto(event)"
+              onkeydown="showClearButton()"
+              onkeypress="searchProduct(event)"
               class="barra-pesquisa"
               type="text"
               placeholder="Buscar"
@@ -57,10 +57,10 @@
               autocomplete="off"
             />
             <img
-              id="limpaTexto"
+              id="clearText"
               class="cancelar tira-botao-limpar"
               src="./assets/img/x-512.webp"
-              onclick="limpaTexto()"
+              onclick="clearText()"
             />
             <i class="fab fa-sistrix"></i>
           </label>
@@ -94,42 +94,43 @@
         <section>
           <ul class="container-lista">
             <li class="lista-itens">
-              <a class="lista-itens__link" href="./pesquisa.html?categoria="
+              <a class="lista-itens__link" href=""
                 >Todos</a
               >
             </li>
             <li class="lista-itens">
               <a
                 class="lista-itens__link"
-                href="./pesquisa.html?categoria=acessorio"
-                >Acessórios</a
+                href=""
               >
+                Acessórios
+              </a>
             </li>
             <li class="lista-itens">
               <a
                 class="lista-itens__link"
-                href="./pesquisa.html?categoria=calca"
+                href=""
                 >Calças</a
               >
             </li>
             <li class="lista-itens">
               <a
                 class="lista-itens__link"
-                href="./pesquisa.html?categoria=camisa"
+                href=""
                 >Camisas</a
               >
             </li>
             <li class="lista-itens">
               <a
                 class="lista-itens__link"
-                href="./pesquisa.html?categoria=camiseta"
+                href=""
                 >Camisetas</a
               >
             </li>
             <li class="lista-itens">
               <a
                 class="lista-itens__link"
-                href="./pesquisa.html?categoria=tenis"
+                href=""
                 >Tênis</a
               >
             </li>

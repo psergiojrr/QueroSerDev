@@ -1,11 +1,11 @@
 const { Op } = require('sequelize')
-const database = require('../models')
+const Products = require('../models/products')
 
 class ProductController {
   static async createProduct(req, res) {
     const newProduct = req.body
     try {
-      const checkProduct = await database.products.findOne({
+      const checkProduct = await Products.findOne({
         where: { nome: String(newProduct.nome) }
       })
 
@@ -15,7 +15,7 @@ class ProductController {
           status: 'erro'
         })
       } else {
-        const newProductCreated = await database.products.create({
+        const newProductCreated = await Products.create({
           nome: newProduct.nome,
           descricao: newProduct.descricao,
           categoria: newProduct.categoria,
@@ -35,25 +35,28 @@ class ProductController {
 
   static async getAllProducts(req, res) {
     try {
-      let param = req.body
-      let key = Object.keys(param)[0]
-      let value = Object.values(param)[0]
+      const { name, category } = req.query
 
-      if (param.id != null || param.nome != null || param.categoria != null) {
-        const allProducts = await database.products.findAll({
+      console.log('name', name)
+      console.log('category', category)
+
+      if (name || category) {
+        const allProducts = await Products.findAll({
           where: {
-            [`${key}`]: {
-              [Op.like]: `%${value}%`
-            }
+            [Op.or]: [
+              { name: { [Op.ilike]: `%${name}%` } },
+              { category: { [Op.ilike]: `%${category}%` } }
+            ]
           }
         })
         return res.status(200).json(allProducts)
       } else {
-        const allProducts = await database.products.findAll()
+        console.log('to aqui')
+        const allProducts = await Products.findAll()
         return res.status(200).json(allProducts)
       }
     } catch (error) {
-      return res.status(200).json(error.message)
+      return res.status(500).json(error.message)
     }
   }
 
@@ -61,7 +64,7 @@ class ProductController {
     const { id } = req.params
 
     try {
-      const getProduct = await database.products.findOne({
+      const getProduct = await Products.findOne({
         where: {
           id: Number(id)
         }
@@ -77,8 +80,8 @@ class ProductController {
     const newInfo = req.body
 
     try {
-      await database.products.update(newInfo, { where: { id: Number(id) } })
-      const updatedProduct = await database.products.findOne({
+      await Products.update(newInfo, { where: { id: Number(id) } })
+      const updatedProduct = await Products.findOne({
         where: { id: Number(id) }
       })
       return res.status(200).json(updatedProduct)
@@ -90,7 +93,7 @@ class ProductController {
   static async deleteProduct(req, res) {
     const { id } = req.params
     try {
-      await database.products.destroy({ where: { id: Number(id) } })
+      await Products.destroy({ where: { id: Number(id) } })
       return res.status(200).json({ message: 'Produto deletado' })
     } catch (error) {
       return res.status(500).json(error.message)

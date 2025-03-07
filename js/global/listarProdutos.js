@@ -1,105 +1,84 @@
-function listarProdutos() {
-  let param = window.location.search
-
-  if (param != '') {
-    param = param.split('?').join('').split('=')
-
-    if (param[1].includes('%20')) {
-      param[1] = param[1].split('%20').join(' ')
-    }
-  }
-
-  let json = {
-    [`${param[0]}`]: getCategory(param[1])
-  }
-
+async function listarProdutos() {
   axios({
-    method: 'post',
-    url: 'http://localhost:3000/products',
+    method: 'get',
+    url: `http://localhost:3000/product`,
     responseType: 'json',
     headers: { 'Access-Control-Allow-Origin': '*' },
-    data: json
   })
-    .then(function (response) {
-      let produtos = response.data ?? `Não há produto cadastrado.`
-      let sectionProdutos = document.querySelector('#lista-produtos')
-      let listaProdutos = ''
+  .then(function (response) {
+    let products = response.data ?? `Não há produto cadastrado.`
+    let sectionProdutos = document.querySelector('#lista-produtos')
+    let productList = ''
 
-      produtos.forEach(produto => {
-        listaProdutos += `<div key="${produto.id}" class="card">
+    products.forEach(product => {
+      productList += `<div key="${product.id}" class="card">
         <div>
-          <img
-            src="${produto.imagem}"
-          />
+          <img src="${product.image}" />
         </div>
         <div class="card-bottom">
-          <h3 class="card-titulo">
-            ${produto.nome}
-          </h3>
-          <p class="card-descricao">
-            ${produto.descricao}
-          </p>
+          <h3 class="card-titulo">${product.name}</h3>
+          <p class="card-descricao">${product.description}</p>
         </div>
         <div class="card-informacoes">
-          <span>${produto.categoria}</span>
-          <span><strong>${mascaraReais(produto.preco)}</strong></span>
+          <span>${product.category}</span>
+          <span><strong>${convertToBRL(product.price/100)}</strong></span>
         </div>
       </div>`
-      })
-      sectionProdutos.innerHTML = listaProdutos
-      if (listaProdutos == '') {
-        listaProdutos += `<h3 class="nenhumPedido">Nenhum pedido foi localizado :(</h3>`
-        sectionProdutos.innerHTML = listaProdutos
-      }
     })
-    .catch(function (error) {
-      console.log(error)
-    })
+    sectionProdutos.innerHTML = productList
+
+    if (productList == '') {
+      productList += `<h3 class="nenhumPedido">Nenhum pedido foi localizado :(</h3>`
+      sectionProdutos.innerHTML = productList
+    }
+  })
+  .catch(function (error) {
+    console.log(error)
+  })
 }
 
-function getCategory(value) {
-  let valor = value
+// function getCategory(value) {
+//   let category
+//   switch (value) {
+//     case 'tenis':
+//       category = 'tênis'
+//       break
+//     case 'acessorio':
+//       category = 'acessório'
+//       break
+//     case 'calca':
+//       category = 'calça'
+//       break
 
-  switch (value) {
-    case 'tenis':
-      valor = 'tênis'
-      break
-    case 'acessorio':
-      valor = 'acessório'
-      break
-    case 'calca':
-      valor = 'calça'
-      break
+//     default:
+//       break
+//   }
 
-    default:
-      break
-  }
+//   return category
+// }
 
-  return valor
-}
+// function searchProduct(event) {
+//   if (event.keyCode == 13) {
+//     let key = event.target.value
 
-function pesquisarProduto(event) {
-  if (event.keyCode == 13) {
-    let palavraChave = event.target.value
+//     if (!key) return false
 
-    if (palavraChave == null && palavraChave == '') return false
+//     window.location.href = `./pesquisa.html?name=${key}`
+//   }
+// }
 
-    window.location.href = `./pesquisa.html?nome=${palavraChave}`
-  }
-}
+// function clearText() {
+//   document.querySelector('#textoPesquisa').value = ''
+//   showClearButton()
+// }
 
-function limpaTexto() {
-  document.querySelector('#textoPesquisa').value = ''
-  apareceBotaoLimpar()
-}
+// function showClearButton() {
+//   document.querySelector('#clearText').classList.remove('tira-botao-limpar')
 
-function apareceBotaoLimpar() {
-  document.querySelector('#limpaTexto').classList.remove('tira-botao-limpar')
-
-  let texto = document.querySelector('#textoPesquisa')
-  if (texto.value === '') {
-    return document
-      .querySelector('#limpaTexto')
-      .classList.add('tira-botao-limpar')
-  }
-}
+//   let texto = document.querySelector('#textoPesquisa')
+//   if (texto.value === '') {
+//     return document
+//       .querySelector('#clearText')
+//       .classList.add('tira-botao-limpar')
+//   }
+// }
