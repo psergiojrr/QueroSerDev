@@ -32,5 +32,5 @@ INSERT INTO products VALUES
 ('c997014c-c476-480b-899f-3d110e6091c7','Camiseta Adidas','Uma peça versátil para usar nas diversas ocasiões e te deixar cheio de estilo é a Camiseta adidas Manga Curta Logo.  A camiseta adidas masculina é de gola careca com tira interna em tecido que ajuda a diminuir o atrito de contato com a costura.','Camiseta',9990,'https://static.netshoes.com.br/produtos/camiseta-adidas-logo-skt-masculina/06/FB8-0959-006/FB8-0959-006_zoom1.jpg?ts=1662403283&ims=326x','2022-09-18 16:34:05','2022-09-18 19:36:56');
 
 INSERT INTO users VALUES 
-('f71950f4-7ba9-4751-8140-b7cbad241fb2','Paulo','paulo@email.com','paulo123','ADMIN','2022-09-09 18:17:19','2022-09-16 01:06:41'),
-('79da2408-ec9b-4008-a297-8524911f250a', 'Paulo Sérgio', 'sergio@email.com', 'sergio123', 'USER', '2025-03-06 13:40:22.884', '2025-03-06 13:58:17.344');
+('f71950f4-7ba9-4751-8140-b7cbad241fb2','Paulo Admin','admin@admin.com','admin123','ADMIN','2022-09-09 18:17:19','2022-09-16 01:06:41'),
+('79da2408-ec9b-4008-a297-8524911f250a', 'Paulo Sérgio', 'paulo@sergio.com', 'paulo123', 'USER', '2025-03-06 13:40:22.884', '2025-03-06 13:58:17.344');
