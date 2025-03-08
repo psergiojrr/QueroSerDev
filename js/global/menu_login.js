@@ -5,7 +5,7 @@ function verifyUser() {
   let loginMenu = document.querySelector('#menu-usuario')
 
   if (user) {
-    const isAdmin = verifyPermission(user)
+    const isAdmin = verifyUserPermission(user)
     let menuLogado = `
       <li id="item-logado" class="nav-item dropdown">
         <a
@@ -37,7 +37,10 @@ function verifyUser() {
     `
 
     loginMenu.innerHTML = menuLogado
-    return (status = 'sucesso')
+    return ({
+      status: 'sucesso',
+      isAdmin: isAdmin
+    })
   }
 }
 
@@ -64,6 +67,10 @@ function checkUser() {
   return user
 }
 
+function verifyUserPermission (user) {
+  return user.permission === 'ADMIN'
+}
+
 function whiteList() {
   let url = window.location.href
   let list = ['index.html', 'pesquisa.html', 'cadastro-usuario.html','']
@@ -75,6 +82,3 @@ function whiteList() {
   return isGranted
 }
 
-function verifyPermission (user) {
-  return user.permission === 'ADMIN'
-}

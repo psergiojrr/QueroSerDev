@@ -162,21 +162,18 @@
     <script src="./js/global/menu_login.js" defer></script>
     <script src="./js/requests/createProduct.js" defer></script>
     <script src="./js/global/listProducts.js" defer></script>
+    <script src="./js//utils/verifyUserPermission.js" defer ></script>
     <script defer>
       window.onload = function() {
-        verifyUser()
-
-        isAdmin()
-
-        function isAdmin() {
-          let user = JSON.parse(localStorage.getItem('user'))
-
-          if (user.admin == 0 || user.admin == null) {
+        const user = verifyUser()
+        
+        if (!user.isAdmin) {
             alert('Seu usuário não tem acesso a essa página!')
-            return (window.location.href = './index.html')
+            const redirect = window.location.href = './index.html'
+            
+            return redirect
           }
         }
-      }
     </script>
   </body>
 </html>
