@@ -6,7 +6,7 @@ class ProductController {
     const newProduct = req.body
     try {
       const checkProduct = await Products.findOne({
-        where: { nome: String(newProduct.nome) }
+        where: { name: String(newProduct.name) }
       })
 
       if (checkProduct !== null) {
@@ -16,11 +16,11 @@ class ProductController {
         })
       } else {
         const newProductCreated = await Products.create({
-          nome: newProduct.nome,
-          descricao: newProduct.descricao,
-          categoria: newProduct.categoria,
-          preco: newProduct.preco,
-          imagem: newProduct.imagem
+          name: newProduct.name,
+          description: newProduct.description,
+          category: newProduct.category,
+          price: newProduct.price,
+          image: newProduct.image
         })
         return res.status(200).json({
           message: 'Produto cadastrado com sucesso',
@@ -37,9 +37,6 @@ class ProductController {
     try {
       const { name, category } = req.query
 
-      console.log('name', name)
-      console.log('category', category)
-
       if (name || category) {
         const allProducts = await Products.findAll({
           where: {
@@ -51,7 +48,6 @@ class ProductController {
         })
         return res.status(200).json(allProducts)
       } else {
-        console.log('to aqui')
         const allProducts = await Products.findAll()
         return res.status(200).json(allProducts)
       }

@@ -92,52 +92,12 @@
                 id="name"
                 type="text"
                 min="2"
-                placeholder="Nome do produto"
-                required
-              />
-            </label>
-            <label for="">
-              <i class="fas fa-bars"></i>
-              <input
-                id="description"
-                type="text"
-                min="10"
-                placeholder="Descrição"
-                required
-              />
-            </label>
-            <label for="">
-              <i class="fas fa-tag"></i>
-              <input
-                id="category"
-                type="text"
-                min="4"
-                placeholder="Categoria"
-                required
-              />
-            </label>
-            <label for="">
-              <i class="fas fa-dollar-sign"></i>
-              <input
-                id="price"
-                type="number"
-                min="1"
-                pattern="[0-9]"
-                step="0.01"
-                placeholder="Preço"
-              />
-            </label>
-            <label for="">
-              <i class="fas fa-image"></i>
-              <input
-                id="image"
-                type="text"
-                placeholder="Informe a URL da imagem"
+                placeholder="Nome da categoria"
                 required
               />
             </label>
 
-            <button class="card-botao" onclick="createProduct()">
+            <button class="card-botao" onclick="createCategory()">
               Cadastrar
             </button>
           </div>
@@ -160,20 +120,17 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <script src="./js/global/menu_login.js" defer></script>
-    <script src="./js/requests/createProduct.js" defer></script>
-    <script src="./js/global/listProducts.js" defer></script>
+    <script src="./js/requests/createCategory.js" defer></script>
     <script src="./js//utils/verifyUserPermission.js" defer ></script>
     <script defer>
       window.onload = function() {
         const user = verifyUser()
         
         if (!user.isAdmin) {
-            alert('Seu usuário não tem acesso a essa página!')
-            const redirect = window.location.href = './index.html'
-            
-            return redirect
-          }
+          alert('Seu usuário não tem acesso a essa página!')
+          return window.location.href = './index.html'
         }
+      }
     </script>
   </body>
 </html>

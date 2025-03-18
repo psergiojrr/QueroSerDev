@@ -10,6 +10,14 @@ CREATE TABLE IF NOT EXISTS products (
     "deletedAt" TIMESTAMP NULL
 );
 
+CREATE TABLE IF NOT EXISTS categories (
+    id UUID NOT NULL PRIMARY KEY,
+    name VARCHAR(255),
+    "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    "deletedAt" TIMESTAMP NULL
+);
+
 CREATE TABLE IF NOT EXISTS users (
   id UUID NOT NULL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -34,3 +42,9 @@ INSERT INTO products VALUES
 INSERT INTO users VALUES 
 ('f71950f4-7ba9-4751-8140-b7cbad241fb2','Paulo Admin','admin@admin.com','admin123','ADMIN','2022-09-09 18:17:19','2022-09-16 01:06:41'),
 ('79da2408-ec9b-4008-a297-8524911f250a', 'Paulo Sérgio', 'paulo@sergio.com', 'paulo123', 'USER', '2025-03-06 13:40:22.884', '2025-03-06 13:58:17.344');
+
+INSERT INTO categories VALUES
+('39ae1a77-6efb-43ac-80a9-86bb88873e03'::uuid, 'Calça', '2022-09-09 18:17:19.000', '2022-09-16 01:06:41.000', NULL),
+('536a7900-de60-4941-91e2-3c441362ce1e'::uuid, 'Tênis', '2022-09-09 18:17:19.000', '2022-09-16 01:06:41.000', NULL),
+('536e5394-b1df-4f4e-bccf-7f6d5a3f5d76'::uuid, 'Camisa', '2022-09-09 18:17:19.000', '2022-09-16 01:06:41.000', NULL),
+('eaa2a6d7-ba20-4e75-b120-85d6a7ca3d88'::uuid, 'Camiseta', '2022-09-09 18:17:19.000', '2022-09-16 01:06:41.000', NULL);
