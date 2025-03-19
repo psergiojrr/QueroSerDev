@@ -1,6 +1,5 @@
 function verifyUser() {
   const user = checkUser()
-  let status = ''
 
   let loginMenu = document.querySelector('#menu-usuario')
 

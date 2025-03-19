@@ -159,10 +159,9 @@
     <script src="./js/requests/createProduct.js" defer></script>
     <script src="./js/requests/getCategories.js" defer ></script>
     <script src="./js/global/listProducts.js" defer></script>
-    <script src="./js//utils/verifyUserPermission.js" defer ></script>
+    <script src="./js//global/menu_login.js" defer ></script>
     <script defer>
-      window.onload = function() {
-        getCategories()
+      window.onload = async function() {
         const user = verifyUser()
         
         if (!user.isAdmin) {
@@ -171,6 +170,16 @@
 
           return redirect
         }
+
+        const categories = await getCategories()
+
+        const categorySelect = document.getElementById('category')
+        categories.forEach(category => {
+          const option = document.createElement('option')
+          option.value = category.name
+          option.textContent = category.name
+          categorySelect.appendChild(option)
+        });
       }
     </script>
   </body>

@@ -93,47 +93,6 @@
 
         <section>
           <ul class="container-lista">
-            <li class="lista-itens">
-              <a class="lista-itens__link" href=""
-                >Todos</a
-              >
-            </li>
-            <li class="lista-itens">
-              <a
-                class="lista-itens__link"
-                href=""
-              >
-                Acessórios
-              </a>
-            </li>
-            <li class="lista-itens">
-              <a
-                class="lista-itens__link"
-                href=""
-                >Calças</a
-              >
-            </li>
-            <li class="lista-itens">
-              <a
-                class="lista-itens__link"
-                href=""
-                >Camisas</a
-              >
-            </li>
-            <li class="lista-itens">
-              <a
-                class="lista-itens__link"
-                href=""
-                >Camisetas</a
-              >
-            </li>
-            <li class="lista-itens">
-              <a
-                class="lista-itens__link"
-                href=""
-                >Tênis</a
-              >
-            </li>
           </ul>
         </section>
 
@@ -163,10 +122,27 @@
     <script src="./js/global/menu_login.js" defer></script>
     <script src="./js/utils/filters.js" defer></script>
     <script src="./js/global/listProducts.js" defer></script>
+    <script src="./js/requests/getCategories.js" defer></script>
     <script defer>
-      window.onload = function() {
+      window.onload = async function() {
         const user = verifyUser()
         listProducts()
+
+        const categories = await getCategories()
+
+        const categorySelect = document.querySelector('.container-lista')
+
+        const todosItem = document.createElement('li');
+        todosItem.className = 'lista-itens';
+        todosItem.innerHTML = `<a class="lista-itens__link" href="">Todos</a>`;
+        categorySelect.appendChild(todosItem);
+
+        categories.forEach((category) => {
+          const item = document.createElement('li');
+          item.className = 'lista-itens';
+          item.innerHTML = `<a class="lista-itens__link" href="">${category.name}</a>`;
+          categorySelect.appendChild(item);
+        });
       }
     </script>
   </body>

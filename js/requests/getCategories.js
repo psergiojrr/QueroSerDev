@@ -1,21 +1,14 @@
-function getCategories() {
-  axios({
-    method: 'get',
-    url: 'http://localhost:3000/category',
-    responseType: 'json',
-    headers: { 'Access-Control-Allow-Origin': '*' }
-  })
-    .then(function (response) {
-      const categories = response.data
-      const categorySelect = document.getElementById('category')
-      categories.forEach(category => {
-        const option = document.createElement('option')
-        option.value = category.name
-        option.textContent = category.name
-        categorySelect.appendChild(option)
-      });
+async function getCategories() {
+  try {
+    const response = await axios({
+      method: 'get',
+      url: 'http://localhost:3000/category',
+      responseType: 'json',
+      headers: { 'Access-Control-Allow-Origin': '*' }
     })
-    .catch(error => {
-      return alert("Erro ao carregar categorias:", error.message)
-    })
+    return response.data
+  } catch (error) {
+    alert("Erro ao carregar categorias: " + error.message)
+    return []
+  }
 }
