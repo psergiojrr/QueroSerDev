@@ -47,24 +47,23 @@
         </div>
         <div id="barra-pesquisa">
           <input
-          id="textoPesquisa"
-          onkeydown="showClearButton()"
-          onkeypress="searchProduct(event)"
-          class="barra-pesquisa"
-          type="text"
-          placeholder="Buscar"
-          name="search"
-          autocomplete="off"
-          value=""
-        />
-        <img
-          id="clearText"
-          class="cancelar tira-botao-limpar"
-          src="./assets/img/x-512.webp"
-          onclick="clearText()"
-        />
-        <i class="fab fa-sistrix"></i>
-      </label>
+            id="textoPesquisa"
+            oninput="showClearButton()"
+            onkeypress="searchProduct(event)"
+            class="barra-pesquisa"
+            type="text"
+            placeholder="Buscar"
+            name="search"
+            autocomplete="off"
+            value=""
+          />
+          <img
+            id="clearText"
+            class="cancelar tira-botao-limpar"
+            src="./assets/img/x-512.webp"
+            onclick="clearText()"
+          />
+          <i class="fab fa-sistrix"></i>
         </div>
         <div>
           <nav>
@@ -80,7 +79,7 @@
 
     <main>
       <div>
-        <h2 class="titulo">Cadastro de produto</h2>
+        <h2 class="titulo">Cadastro de categoria</h2>
       </div>
       <div class="container-principal">
         <div class="card-conteudo">
@@ -120,15 +119,16 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <script src="./js/global/menu_login.js" defer></script>
-    <script src="./js/requests/createCategory.js" defer></script>
-    <script src="./js//utils/verifyUserPermission.js" defer ></script>
+    <script src="./js/global/listProducts.js" defer></script>
     <script defer>
-      window.onload = function() {
+      window.onload = async function() {
         const user = verifyUser()
         
         if (!user.isAdmin) {
           alert('Seu usuário não tem acesso a essa página!')
-          return window.location.href = './index.html'
+          const redirect = window.location.href = './index.html'
+
+          return redirect
         }
       }
     </script>

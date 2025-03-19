@@ -47,7 +47,7 @@
           <label for="">
             <input
               id="textoPesquisa"
-              onkeydown="showClearButton()"
+              oninput="showClearButton()"
               onkeypress="searchProduct(event)"
               class="barra-pesquisa"
               type="text"
@@ -81,46 +81,6 @@
       <div>
         <section>
           <ul class="container-lista">
-            <li class="lista-itens">
-              <a class="lista-itens__link" href=""
-                >Todos</a
-              >
-            </li>
-            <li class="lista-itens">
-              <a
-                class="lista-itens__link"
-                href=""
-                >Acessórios</a
-              >
-            </li>
-            <li class="lista-itens">
-              <a
-                class="lista-itens__link"
-                href=""
-                >Calças</a
-              >
-            </li>
-            <li class="lista-itens">
-              <a
-                class="lista-itens__link"
-                href=""
-                >Camisas</a
-              >
-            </li>
-            <li class="lista-itens">
-              <a
-                class="lista-itens__link"
-                href=""
-                >Camisetas</a
-              >
-            </li>
-            <li class="lista-itens">
-              <a
-                class="lista-itens__link"
-                href=""
-                >Tênis</a
-              >
-            </li>
           </ul>
         </section>
         <div class="resultado-pesquisa">
@@ -151,11 +111,39 @@
     <script src="./js/global/menu_login.js" defer></script>
     <script src="./js/utils/filters.js" defer></script>
     <script src="./js/global/listProducts.js" defer></script>
-
+    <script src="./js/requests/getCategories.js" defer></script>
     <script defer>
-      window.onload = function() {
+      window.onload = async function() {
         const user = verifyUser()
-        listProducts()
+
+        let url = new URL(window.location.href)
+        let params = new URLSearchParams(url.search)
+        let name = params.get('name')
+        listProducts(null, name)
+
+        const categories = await getCategories()
+
+        const categorySelect = document.querySelector('.container-lista')
+
+        const todosItem = document.createElement('li')
+        todosItem.className = 'lista-itens'
+        todosItem.innerHTML = `<a class="lista-itens__link" href="#" data-category="">Todos</a>`
+        categorySelect.appendChild(todosItem)
+
+        categories.forEach((category) => {
+          const item = document.createElement('li')
+          item.className = 'lista-itens'
+          item.innerHTML = `<a class="lista-itens__link" href="#" data-category="${category.name}">${category.name}</a>`
+          categorySelect.appendChild(item)
+        })
+        const categoryLinks = document.querySelectorAll('.lista-itens__link')
+        categoryLinks.forEach(link => {
+          link.addEventListener('click', function(event) {
+            event.preventDefault()
+            const category = link.getAttribute('data-category')
+            listProducts(category)
+          })
+        })
       }
     </script>
   </body>

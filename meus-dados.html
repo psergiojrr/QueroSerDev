@@ -48,6 +48,8 @@
         <div id="barra-pesquisa">
           <label for="">
             <input
+              id="textoPesquisa"
+              oninput="showClearButton()"
               onkeypress="searchProduct(event)"
               class="barra-pesquisa"
               type="text"
@@ -55,6 +57,12 @@
               name="search"
               autocomplete="off"
               value=""
+            />
+            <img
+              id="clearText"
+              class="cancelar tira-botao-limpar"
+              src="./assets/img/x-512.webp"
+              onclick="clearText()"
             />
             <i class="fab fa-sistrix"></i>
           </label>
@@ -123,6 +131,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <script src="./js/requests/createUser.js" defer></script>
     <script src="./js/global/menu_login.js" defer></script>
+    <script src="./js/global/listProducts.js" defer></script>
     <script defer>
       window.onload = function() {
         const user = verifyUser()

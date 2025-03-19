@@ -47,24 +47,23 @@
         </div>
         <div id="barra-pesquisa">
           <input
-          id="textoPesquisa"
-          onkeydown="showClearButton()"
-          onkeypress="searchProduct(event)"
-          class="barra-pesquisa"
-          type="text"
-          placeholder="Buscar"
-          name="search"
-          autocomplete="off"
-          value=""
-        />
-        <img
-          id="clearText"
-          class="cancelar tira-botao-limpar"
-          src="./assets/img/x-512.webp"
-          onclick="clearText()"
-        />
-        <i class="fab fa-sistrix"></i>
-      </label>
+            id="textoPesquisa"
+            oninput="showClearButton()"
+            onkeypress="searchProduct(event)"
+            class="barra-pesquisa"
+            type="text"
+            placeholder="Buscar"
+            name="search"
+            autocomplete="off"
+            value=""
+          />
+          <img
+            id="clearText"
+            class="cancelar tira-botao-limpar"
+            src="./assets/img/x-512.webp"
+            onclick="clearText()"
+          />
+          <i class="fab fa-sistrix"></i>
         </div>
         <div>
           <nav>

@@ -1,7 +1,11 @@
-async function listProducts(category = '') {
+async function listProducts(category = '', name = '') {
   let url = `http://localhost:3000/product`;
   if (category) {
     url += `?category=${category}`
+  }
+
+  if(name) {
+    url += `?name=${name}`
   }
 
   axios({
@@ -42,28 +46,28 @@ async function listProducts(category = '') {
   })
 }
 
-// function searchProduct(event) {
-//   if (event.keyCode == 13) {
-//     let key = event.target.value
+function searchProduct(event) {
+  if (event.keyCode == 13) {
+    let key = event.target.value
 
-//     if (!key) return false
+    if (!key) return false
 
-//     window.location.href = `./pesquisa.html?name=${key}`
-//   }
-// }
+    window.location.href = `./pesquisa.html?name=${key}`
+  }
+}
 
-// function clearText() {
-//   document.querySelector('#textoPesquisa').value = ''
-//   showClearButton()
-// }
+function clearText() {
+  document.querySelector('#textoPesquisa').value = ''
+  showClearButton()
+}
 
-// function showClearButton() {
-//   document.querySelector('#clearText').classList.remove('tira-botao-limpar')
+function showClearButton() {
+  document.querySelector('#clearText').classList.remove('tira-botao-limpar')
 
-//   let texto = document.querySelector('#textoPesquisa')
-//   if (texto.value === '') {
-//     return document
-//       .querySelector('#clearText')
-//       .classList.add('tira-botao-limpar')
-//   }
-// }
+  let texto = document.querySelector('#textoPesquisa')
+  if (texto.value === '') {
+    return document
+      .querySelector('#clearText')
+      .classList.add('tira-botao-limpar')
+  }
+}
