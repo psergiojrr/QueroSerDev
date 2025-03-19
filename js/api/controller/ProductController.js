@@ -56,6 +56,7 @@ class ProductController {
     }
   }
 
+  //todo implement logic to frontend
   static async getProduct(req, res) {
     const { id } = req.params
 
@@ -71,6 +72,7 @@ class ProductController {
     }
   }
 
+  //todo implement logic to frontend
   static async updateProduct(req, res) {
     const { id } = req.params
     const newInfo = req.body
@@ -86,6 +88,7 @@ class ProductController {
     }
   }
 
+  //todo implement logic to frontend
   static async deleteProduct(req, res) {
     const { id } = req.params
     try {

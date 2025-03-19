@@ -40,7 +40,8 @@ class UserController {
     }
   }
 
-  //todo: Colocar trava que apenas admin pode acessar esse endpoint
+  //todo implement logic to frontend
+  //todo only admins will be allowed so access
   static async getAllUsers(req, res) {
     try {
       const allUsers = await User.findAll()
@@ -90,6 +91,7 @@ class UserController {
     }
   }
 
+  //todo implement logic to frontend
   static async deleteUser(req, res) {
     const { id } = req.params
     try {

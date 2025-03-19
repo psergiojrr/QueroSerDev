@@ -20,6 +20,7 @@
   height: 100%;
   display: flex;
   align-items: center;
+  padding: 1rem 0 1rem 0;
 }
 
 .card-descricao {
@@ -39,11 +40,14 @@
 }
 
 .form label {
-  border-bottom: 1px solid #000000;
   margin: 1rem 0;
   display: flex;
   align-items: center;
   width: 75%;
+}
+
+.form label:has(input) {
+  border-bottom: 1px solid #000000;
 }
 
 .form input {

@@ -108,13 +108,9 @@
             </label>
             <label for="">
               <i class="fas fa-tag"></i>
-              <input
-                id="category"
-                type="text"
-                min="4"
-                placeholder="Categoria"
-                required
-              />
+              <select id="category" required>
+                <option value="">Selecione uma categoria</option>
+              </select>
             </label>
             <label for="">
               <i class="fas fa-dollar-sign"></i>
@@ -161,19 +157,21 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <script src="./js/global/menu_login.js" defer></script>
     <script src="./js/requests/createProduct.js" defer></script>
+    <script src="./js/requests/getCategories.js" defer ></script>
     <script src="./js/global/listProducts.js" defer></script>
     <script src="./js//utils/verifyUserPermission.js" defer ></script>
     <script defer>
       window.onload = function() {
+        getCategories()
         const user = verifyUser()
         
         if (!user.isAdmin) {
-            alert('Seu usuário não tem acesso a essa página!')
-            const redirect = window.location.href = './index.html'
-            
-            return redirect
-          }
+          alert('Seu usuário não tem acesso a essa página!')
+          const redirect = window.location.href = './index.html'
+
+          return redirect
         }
+      }
     </script>
   </body>
 </html>

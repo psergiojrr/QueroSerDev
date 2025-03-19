@@ -52,6 +52,7 @@ class CategoryController {
     }
   }
 
+  //todo implement logic to frontend
   static async getCategory(req, res) {
     const { id } = req.params
 
@@ -67,7 +68,7 @@ class CategoryController {
     }
   }
 
-  //todo fazer depois
+  //todo implement logic to frontend
   static async updateCategory(req, res) {
     const { id } = req.params
     const newInfo = req.body
@@ -83,6 +84,7 @@ class CategoryController {
     }
   }
 
+  //todo implement logic to frontend
   static async deleteCategory(req, res) {
     const { id } = req.params
     try {
