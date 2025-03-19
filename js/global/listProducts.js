@@ -1,7 +1,12 @@
-async function listProducts() {
+async function listProducts(category = '') {
+  let url = `http://localhost:3000/product`;
+  if (category) {
+    url += `?category=${category}`
+  }
+
   axios({
     method: 'get',
-    url: `http://localhost:3000/product`,
+    url: url,
     responseType: 'json',
     headers: { 'Access-Control-Allow-Origin': '*' },
   })
@@ -36,26 +41,6 @@ async function listProducts() {
     console.log(error)
   })
 }
-
-// function getCategory(value) {
-//   let category
-//   switch (value) {
-//     case 'tenis':
-//       category = 'tênis'
-//       break
-//     case 'acessorio':
-//       category = 'acessório'
-//       break
-//     case 'calca':
-//       category = 'calça'
-//       break
-
-//     default:
-//       break
-//   }
-
-//   return category
-// }
 
 // function searchProduct(event) {
 //   if (event.keyCode == 13) {

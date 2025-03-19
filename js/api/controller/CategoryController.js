@@ -52,14 +52,13 @@ class CategoryController {
     }
   }
 
-  //todo implement logic to frontend
   static async getCategory(req, res) {
     const { id } = req.params
 
     try {
       const getCategory = await Category.findOne({
         where: {
-          id: Number(id)
+          id: id
         }
       })
       return res.status(200).json(getCategory)

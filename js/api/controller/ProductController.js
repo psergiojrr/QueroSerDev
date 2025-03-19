@@ -35,28 +35,34 @@ class ProductController {
 
   static async getAllProducts(req, res) {
     try {
-      const { name, category } = req.query
+        const { name, category } = req.query
 
-      if (name || category) {
+        if (!name && !category) {
+            const allProducts = await Products.findAll()
+            return res.status(200).json(allProducts)
+        }
+
+        const conditions = []
+
+        if (name) {
+            conditions.push({ name: { [Op.iLike]: `%${name}%` } })
+        }
+        
+        if (category) {
+            conditions.push({ category: { [Op.iLike]: `%${category}%` } })
+        }
+
         const allProducts = await Products.findAll({
-          where: {
-            [Op.or]: [
-              { name: { [Op.ilike]: `%${name}%` } },
-              { category: { [Op.ilike]: `%${category}%` } }
-            ]
-          }
-        })
-        return res.status(200).json(allProducts)
-      } else {
-        const allProducts = await Products.findAll()
-        return res.status(200).json(allProducts)
-      }
-    } catch (error) {
-      return res.status(500).json(error.message)
-    }
-  }
+            where: conditions[0],
+        });
 
-  //todo implement logic to frontend
+        return res.status(200).json(allProducts);
+    } catch (error) {
+        console.error('Erro ao buscar produtos:', error.message);
+        return res.status(500).json({ message: 'Erro ao buscar produtos', error: error.message });
+    }
+}
+
   static async getProduct(req, res) {
     const { id } = req.params
 
